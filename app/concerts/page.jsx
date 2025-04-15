@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+const API_KEY = process.env.NEXT_TICKETMASTER_API
 
 const Page = () => {
   const [concertData, setConcertData] = useState([]);
@@ -8,7 +9,7 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=DE&classificationName=music&apikey=003mNegIeRSw2UpynrSHta2CJEuefG48"
+          `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=DE&classificationName=music&apikey=${API_KEY}`
         );
         const data = await response.json();
         setConcertData(data._embedded.events);
