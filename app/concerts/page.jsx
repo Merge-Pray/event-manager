@@ -8,7 +8,7 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=DE&classificationName=music&apikey=003mNegIeRSw2UpynrSHta2CJEuefG48"
+          "https://app.ticketmaster.com/discovery/v2/events.json?countryCode=DE&classificationName=music&apikey=xxx"
         );
         const data = await response.json();
         setConcertData(data._embedded.events);
