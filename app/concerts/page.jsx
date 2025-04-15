@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-const API_KEY = process.env.NEXT_TICKETMASTER_API
+const API_KEY = process.env.NEXT_PUBLIC_TICKETMASTER_API
 
 const Page = () => {
   const [concertData, setConcertData] = useState([]);
