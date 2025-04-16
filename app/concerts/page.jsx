@@ -1,10 +1,11 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-const API_KEY = process.env.NEXT_PUBLIC_TICKETMASTER_API
+const API_KEY = process.env.NEXT_PUBLIC_TICKETMASTER_API;
 
 const Page = () => {
   const [concertData, setConcertData] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -24,10 +25,16 @@ const Page = () => {
     <section>
       <ul>
         {concertData.map((concert) => (
-          <Link href={`/concerts/${concert.id}`}>
-            <li key={concert.id}>
+          <Link
+            key={concert.id}
+            href={{
+              pathname: `/concerts/${concert.id}`,
+              query: { concert: encodeURIComponent(JSON.stringify(concert)) }, // Konzertdaten kodiert übergeben
+            }}
+          >
+            <li>
               {concert.name}{" "}
-              <img className="h-20" src={concert.images[0].url}></img>
+              <img className="h-20" src={concert.images[0].url} alt={concert.name} />
             </li>
           </Link>
         ))}
