@@ -29,7 +29,10 @@ const Page = () => {
             key={concert.id}
             href={{
               pathname: `/concerts/${concert.id}`,
-              query: { concert: encodeURIComponent(JSON.stringify(concert)) }, // Konzertdaten kodiert übergeben
+              query: { concert: encodeURIComponent(JSON.stringify(concert)) }, // Konzertdaten kodiert übergeben 
+              // Die Funktion encodeURIComponent in JavaScript wird verwendet, um eine Zeichenkette so zu kodieren, dass sie sicher in einer URL verwendet werden kann. Sie kodiert alle Zeichen, die in einer URL eine spezielle Bedeutung haben könnten (z. B. &, =, ?, /, usw.), indem sie sie in eine Prozent-Codierung umwandelt.
+              // encodeURI kodiert nur Zeichen, die eine URL ungültig machen würden (z. B. Leerzeichen).
+              //encodeURIComponent kodiert zusätzlich Zeichen, die in URL-Parametern eine spezielle Bedeutung haben (z. B. &, =, ?).
             }}
           >
             <li>
